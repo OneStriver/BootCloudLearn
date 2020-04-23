@@ -34,4 +34,4 @@ target/**
 ### IntelliJ IDEA
 .idea/
 target/
-!/BootCloudLearn.iml
+*.iml
