@@ -6,6 +6,70 @@
 5.通过反序列化实例化一个类
 6.通过Unsafe实例化一个类
 
+StringUtils字符串工具类左侧补齐（leftPad）、右侧补齐（rightPad）、左右两侧补齐(center)工具方法?
+左侧补齐 第一个参数：原始字符串，第二个参数：字符串的长度，第三个是补充的字符串
+String s = StringUtils.leftPad("1", 5, "0");
+左侧补齐 第一个参数：原始字符串，第二个参数：字符串的长度，第三个是补充的字符
+String s1 = StringUtils.leftPad("1", 5, 'a');
+获取字符串左侧指定长度的字符串，第一个参数：原字符串，第二个参数：取左侧字符串的长度
+String s2 = StringUtils.left("177哈哈", 5);
+左侧补齐，默认使用空格补齐，第一个参数：原字符串，第二个参数：字符串总长度，不足用空格补全
+String s3 = StringUtils.leftPad("21", 3);
+
+Serializable兼容性问题及serialVersionUID的使用?
+兼容也就是版本控制，java通过一个名为UID（stream unique identifier）来控制，
+这个UID是隐式的，它通过类名，方法名等诸多因素经过计算而得，理论上是一一映射的关系，也就是唯一的。
+如果UID不一 样的话，就无法实现反序列化了，并且将会得到InvalidClassException。
+当我们要人为的产生一个新的版本（实现并没有改动），而抛弃以前的版本的话，可以通过显式的声名UID来实现:
+private static final long serialVersionUID=1l;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

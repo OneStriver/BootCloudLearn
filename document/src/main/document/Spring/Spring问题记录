@@ -20,6 +20,59 @@ Bean在创建的时候可以给该Bean打标，如果递归调用回来发现正
 怎么解决Spring循环依赖?
 参考:https://zhuanlan.zhihu.com/p/62382615
 
+Spring AOP原理 JDK动态代理和CGLIB动态代理?
+参考:
+https://juejin.im/post/5c3e9c37f265da61263862f1
+https://mp.weixin.qq.com/s/NZP2_I918SplJy_zAuhing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
