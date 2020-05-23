@@ -1,4 +1,4 @@
-Bean的生命周期?
+### Bean的生命周期
 1.实例化Bean：Ioc容器通过获取BeanDefinition对象中的信息进行实例化，实例化对象被包装在BeanWrapper对象中
 2.设置对象属性（DI）：通过BeanWrapper提供的设置属性的接口完成属性依赖注入
 3.注入Aware接口（BeanFactoryAware， 可以用这个方式来获取其它 Bean，ApplicationContextAware）：
@@ -8,24 +8,31 @@ Spring会检测该对象是否实现了xxxAware接口，并将相关的xxxAware�
 6.使用
 7.destroy:bean的销毁
 
-Spring的IOC注入方式?
+### Spring的IOC注入方式
 构造器注入
 setter方法注入
 注解注入
 接口注入
 
-怎么检测循环依赖?
+### 怎么检测循环依赖
 Bean在创建的时候可以给该Bean打标，如果递归调用回来发现正在创建中的话，即说明了循环依赖了
 
-怎么解决Spring循环依赖?
+### 怎么解决Spring循环依赖
 参考:https://zhuanlan.zhihu.com/p/62382615
 
-Spring AOP原理 JDK动态代理和CGLIB动态代理?
+### Spring AOP原理 JDK动态代理和CGLIB动态代理
 参考:
 https://juejin.im/post/5c3e9c37f265da61263862f1
 https://mp.weixin.qq.com/s/NZP2_I918SplJy_zAuhing
 
-
+### Spring的事务传播机制
+REQUIRED:如果当前没有事务就创建一个事务，如果当前有事务，就加入事务
+SUPPORTS:支持当前事务，如果当前存在事务，就加入事务，如果当前不存在事务，就以非事务方式执行
+MANDATORY:支持当前事务，如果当前存在事务，就加入是我，如果当前不存在事务，就抛出异常
+REQUIRES_NEW:创建新事务，无论当前是否存在事务，都创建新事务
+NOT_SUPPORTED:以非事务方式运行，如果当前存在事务，就把当前事务挂起
+NEVER:以非事务方式执行，如果当前存在事务，则抛出异常
+NESTED:如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则按REQUIRED属性执行 savepoints
 
 
 

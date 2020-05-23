@@ -1,5 +1,5 @@
-## Eureka
-### Eureka的基本概念
+### Eureka
+#### Eureka的基本概念
 Register:服务注册
 当Eureka客户端向Eureka Server注册时，它提供自身的元数据，比如IP地址、端口，运行状况指示符URL，主页等
 
@@ -22,7 +22,7 @@ Eureka客户端在程序关闭时向Eureka服务器发送取消请求。发送�
 Eviction:服务剔除
 在默认的情况下，当Eureka客户端连续90秒没有向Eureka服务器发送服务续约，即心跳，Eureka服务器会将该服务实例从服务注册列表删除，即服务剔除。
 
-### Eureka注册原理分析
+#### Eureka注册原理分析
 DiscoveryClient的register方法
 EurekaClient注册一个实例为什么这么慢:
 EurekaClient启动完成，不是立即向Eureka Server注册，它有一个延迟向服务端注册的时间，通过跟踪源码，可以发现默认的延迟时间为40秒
@@ -34,16 +34,17 @@ LoadBalancerRefresh:
 Ribbon的负载平衡器从本地的EurekaClient获取服务注册列表信息。Ribbon本身还维护本地缓存，以避免为每个请求调用本地客户端。 
 此缓存每30秒刷新一次（可由ribbon.ServerListRefreshInterval配置）。所以可能需要30多秒才能使用新注册的实例。
 
-### Eureka的自我保护模式
+#### Eureka的自我保护模式
 当一个新的EurekaServer出现时，它尝试从相邻节点获取所有实例注册表信息。如果从Peer节点获取信息时出现问题，EurekaServe会尝试其他的Peer节点。
 如果服务器能够成功获取所有实例，则根据该信息设置应该接收的更新阈值。
 如果有任何时间，EurekaServer接收到的续约低于为该值配置的百分比（默认为15分钟内低于85％），则服务器开启自我保护模式，即不再剔除注册列表的信息。
 这样做的好处就是，如果是EurekaServer自身的网络问题，导致EurekaClient的续约不上，EurekaClient的注册列表信息不再被删除，也就是EurekaClient还可以被其他服务消费。
 
-### Feign原理分析
+#### Feign原理分析
 @FeignClient(value = "service-a",configuration = FeignConfig.class)
 value是调用服务的名称,configuration是配置文件
 FeignClient注解被@Target(ElementType.TYPE)修饰,表示FeignClient注解的作用目标在接口上
+```java
 @Configuration
 public class FeignConfig {
     @Bean
@@ -51,11 +52,12 @@ public class FeignConfig {
         return new Retryer.Default(100, SECONDS.toMillis(1), 5);
     }
 }
+```
 你可以重写FeignClientsConfiguration中的bean，从而达到自定义配置的目的，
 比如FeignClientsConfiguration的默认重试次数为Retryer.NEVER_RETRY，即不重试，那么希望做到重写就需要自定义配置类FeignConfig
 更改了该FeignClient的重试次数，重试间隔为100ms，最大重试时间为1s,重试次数为5次
 
-### 总结:Feign源码的实现的过程
+#### 总结:Feign源码的实现的过程
 1.首先通过@EnableFeignCleints注解开启FeignCleint
 2.根据Feign的规则实现接口，并加@FeignCleint注解
 3.程序启动后，会进行包扫描，扫描所有的@FeignCleint的注解的类，并将这些信息注入到ioc容器中。
