@@ -1,4 +1,3 @@
-### Eureka
 #### Eureka的基本概念
 Register:服务注册
 当Eureka客户端向Eureka Server注册时，它提供自身的元数据，比如IP地址、端口，运行状况指示符URL，主页等
@@ -66,6 +65,7 @@ public class FeignConfig {
 6.Request交给Client去处理，其中Client可以是HttpUrlConnection、HttpClient也可以是Okhttp
 7.最后Client被封装到LoadBalanceClient类，这个类结合类Ribbon做到了负载均衡。
 
+#### SpringCloud的核心架构
 
 
 
