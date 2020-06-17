@@ -1,6 +1,9 @@
-zookeeper:
-    baseSleepTimeMs: 1000
-    maxRetries: 3
-    connectString: 192.168.2.128:2181
-    sessionTimeoutMs: 5000
-    connection-timeout-ms: 5000
+
+
+
+
+
+
+
+
+

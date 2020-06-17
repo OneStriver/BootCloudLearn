@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @date: 2020-05-09 09:44
  * @version: 1.0
  */
-@Component
+// @Component
 public class ShardReentrantLockComponent {
 
     @Autowired

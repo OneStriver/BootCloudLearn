@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
  * @version: 1.0
  */
 @Data
-@Configuration
-@ConfigurationProperties(prefix = "zookeeper")
+//@Configuration
+//@ConfigurationProperties(prefix = "zookeeper")
 public class ZookeeperProperties {
 
     private Integer baseSleepTimeMs;

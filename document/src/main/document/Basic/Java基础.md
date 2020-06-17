@@ -33,12 +33,46 @@ private static final long serialVersionUID=1L;
 7. 线程终结规则
 8. 对象终结规则
 
+#### JDK1.7和JDK1.8之后的JVM内存区域划分
+参考:https://blog.csdn.net/Hollake/article/details/92762180
 
+#### Java中的Checked Exception和Unchecked Exception的区别
+将派生于Error或者RuntimeException的异常称为unchecked异常,所有其他的异常成为checked异常
 
+Checked Exception
+代码需要处理API抛出的checked exception,要么用catch语句,要么直接用throws语句抛出去
+Unchecked Exception
+代码不需要处理它们的异常也能通过编译
 
+检查性异常: 不处理编译不能通过
+非检查性异常：不处理编译可以通过,如果有抛出直接抛到控制台
+运行时异常： 就是非检查性异常
+非运行时异常： 就是检查性异常
 
-
-
+```text
+根据List<User>中User对象的age属性计算总和
+方式一:
+int ageSum = userList.stream().collect(Collectors.summingInt(User::getAge));
+方式二:
+int ageSumTwo = userList.stream().filter(user -> user.getAge() != null).mapToInt(User::getAge).sum();
+List转Map
+方式一:
+如果name相同就会报错
+Map<String, Long> result1 = list.stream().collect(
+                Collectors.toMap(Hosting::getName, 
+                        Hosting::getWebsites
+                )
+        );
+方式二:
+添加 (oldValue, newValue) -> oldValue
+如果name相同取旧值
+Map<String, Long> result1 = list.stream().collect(
+                Collectors.toMap(Hosting::getName, 
+                        Hosting::getWebsites,
+                        (oldValue, newValue) -> oldValue
+                )
+        );
+```
 
 
 

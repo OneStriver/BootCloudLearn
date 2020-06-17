@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @date: 2020-05-09 09:43
  * @version: 1.0
  */
-@Configuration
+//@Configuration
 public class ZookeeperConfig {
 
     /**

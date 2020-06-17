@@ -10,6 +10,8 @@
 2. XML, XML中的当前配置会重写dubbo.properties中的
 3. Properties，默认配置，仅仅作用于以上两者没有配置时
 
+#### Dubbo示例
+1. 启动时检查
 
 
 
