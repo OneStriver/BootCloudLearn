@@ -53,12 +53,16 @@ NESTED:如果当前存在事务，则在嵌套事务内执行。如果当前没�
 10. DispatcherServlet对View进行渲染视图(即将模型数据填充至视图中)
 11. DispatcherServlet响应用户
 
-### 原生Spring组件装配的方式
+#### 原生Spring组件装配的方式
 1. 使用模式注解@Component等
 2. 使用配置类@Configuration和@Bean
 3. 使用模块注解@Enablexxx和@Import
 
-
+#### Spring如何解决的循环依赖
+```text
+参考文章:
+https://mp.weixin.qq.com/s/5mwkgJB7GyLdKDgzijyvXw
+```
 
 
 
